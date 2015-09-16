@@ -6,7 +6,7 @@ Reportes del Proyecto ICOM5015
 http://ar-icom.github.io
 
 # Sprint Meetings Reports 0
-- ** What Worked Well?**
+- **What Worked Well?**
 
 En esta primera etapa logramos unificar en un solo concepto las muchas ideas generadas por
 los miembros del grupo. Además de una buena comunicación abierta y positiva, que ha contribuido
