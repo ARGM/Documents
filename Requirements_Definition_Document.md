@@ -45,3 +45,23 @@ Las preguntas serán categorizadas por área de interes; estarán formadas por u
 ## Respuestas
 
 En la campo de las respuestas, pueden intervenir todos los usuarios y unicamente podrán ser editadas o eliminadas por su autor.
+
+## Development Frameworks
+
+a. Hardware Requirements
+
+1. Processor -- Intel Pentium IV 2.0 GHz and above
+2. RAM		-- 	512 MB and above
+3. Hard disk	--	80GB and above
+4. Monitor	--	CRT or LCD monitor
+5. Keyboard	--	Normal or Multimedia
+6. Mouse		--	Compatible mouse
+
+b. Software Requirements
+
+1. PHP Framework -- CodeIgniter
+2. DBMS -- Mysql
+3. Operation System 	-- 	Windows XP or above, Linux, OSX
+4. Brauser -- Chrome, Firefox or Safary
+
+
