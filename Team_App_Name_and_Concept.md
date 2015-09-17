@@ -15,7 +15,7 @@ Nuestro equipo está conformado por los estudiantes: Alcibiades Bustillo y Rober
 
 #Nombre de la Aplicación y Concepto
 
-Crearemos una red social que llevará el nombre de **Chotiando!**. La idea central de la red, es conectar
+Crearemos una red social que llevará el nombre de **Choteando!**. La idea central de la red, es conectar
 a los estudiantes del recinto de mayaguez, pero enfocandonos en el interes común de compartir información 
 sobre los programas de estudio, cursos, solución de problemas académicos, ejercicios, trabajos, proyectos,
 eventos, profesores y estudiantes. No se trata solo de postear información, sino de crear un espacio en el
