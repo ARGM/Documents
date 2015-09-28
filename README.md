@@ -29,7 +29,9 @@ de entidades y que esta este alojada en la nube. También tener avance en la imp
 aplicación (registro y login de usuarios).
 
 # Sprint Meetings Reports 1
+
 - **What Worked Well?**
+
 En esta segunda etapa del proyecto, hemos configurado nuestra base de datos deacuerdo con nuestro diagrama
 entidad relación. Tambien hemos logrado el correcto funcionamiento de los siguientes modulos:
 
@@ -42,14 +44,17 @@ entidad relación. Tambien hemos logrado el correcto funcionamiento de los sigui
 6. Notificaciones: Recibe notificaciones cuando los usuarios soliciten tu amistad. publicaciones y/o imagenes
 
 - **What Didn’t Worked Well?**
+
 Ha sido ardua la eleaboración del sitema de solcitud de amistad y asi mismo el modulo de notificaciones.
 
 
 - **What We Learned?**
+
 Hemos aprendido a la realizar un sencillo sistema de solicitud de amistad. 
  
 
 # Next Sprint Planning
+
 Para la siguiente fase trataremos de elaborar los siguientes modulos:
 
 1. Likes: Los usuarios pueden darle likes a las respuestas de sus preguntas o publicaciones de sus amigos.
