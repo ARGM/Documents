@@ -27,3 +27,31 @@ de PM para la organización de las tareas del proyecto.
 Nuestro siguiente objetivo es configurar la base de datos relacionada con nuestro diagrama de relación
 de entidades y que esta este alojada en la nube. También tener avance en la implementación de la
 aplicación (registro y login de usuarios).
+
+# Sprint Meetings Reports 1
+- **What Worked Well?**
+En esta segunda etapa del proyecto, hemos configurado nuestra base de datos deacuerdo con nuestro diagrama
+entidad relación. Tambien hemos logrado el correcto funcionamiento de los siguientes modulos:
+
+1. Usuarios: Se pueden registrar para acceder a sus cuentas y poder disfrutar de choteando.
+2. Publicaciones: Cada usuario puede publicar algun comentario y lo puede ver en su muro.
+3. Configuración: Los usuarios pueden editar su datos.
+4. Agregar pregunta: Los usuarios pueden realizar alguna pregunta dentro de 4 categorias (matemáticas, física, programación y otros)
+4. Respuesta: Los usuarios pueden responder a las preguntas hechas por otros usuarios.
+5. Amigos: Puedes enviarles solicitud de amistad, esperar a que te acepten o tu puedes recibir solicitudes y aceptarlas.
+6. Notificaciones: Recibe notificaciones cuando los usuarios soliciten tu amistad. publicaciones y/o imagenes
+
+- **What Didn’t Worked Well?**
+Ha sido ardua la eleaboración del sitema de solcitud de amistad y asi mismo el modulo de notificaciones.
+
+
+- **What We Learned?**
+Hemos aprendido a la realizar un sencillo sistema de solicitud de amistad. 
+ 
+
+# Next Sprint Planning
+Para la siguiente fase trataremos de elaborar los siguientes modulos:
+1. Likes: Los usuarios pueden darle likes a las respuestas de sus preguntas o publicaciones de sus amigos.
+2. Comentarios: Los usuarios pueden escribir comentarios a las publicaciones de sus amigos.
+3. Mensajes: Puedes enviar mensajes a tus amigos y tener conversaciones.
+
