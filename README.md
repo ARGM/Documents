@@ -51,6 +51,7 @@ Hemos aprendido a la realizar un sencillo sistema de solicitud de amistad.
 
 # Next Sprint Planning
 Para la siguiente fase trataremos de elaborar los siguientes modulos:
+
 1. Likes: Los usuarios pueden darle likes a las respuestas de sus preguntas o publicaciones de sus amigos.
 2. Comentarios: Los usuarios pueden escribir comentarios a las publicaciones de sus amigos.
 3. Mensajes: Puedes enviar mensajes a tus amigos y tener conversaciones.
