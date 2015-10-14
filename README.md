@@ -2,8 +2,10 @@
 Reportes del Proyecto ICOM5015
 
 # Enlace HelloWorld App
-
 http://ar-icom.github.io
+
+# Enlace choteando en DigitalOcean
+http://104.131.29.243/index.php/login
 
 # Sprint Meetings Reports 0
 - **What Worked Well?**
@@ -69,6 +71,7 @@ En esta tercera etapa del proyecto se realizaron los siguientes adelantos:
 1. Autocompletado y la autosugerencia para la busqueda de los usuarios de chotenado.
 2. Se implementó el sistema de likes para las publicaciones de los amigos.
 3. También los usuarios pueden comentar las publicaciones de sus amigos.
+4. Se instaló la aplicación Chotenado en un cloud service (DigitalOcean), y phpmyadmin para la gestión de la base de datos.
 
 **What We Learned?**
 Hemos aprendido el uso de jquery para crear el sistema de likes y comentarios a las publicaciones de los amigos
