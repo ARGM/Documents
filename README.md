@@ -66,6 +66,7 @@ Para la siguiente fase trataremos de elaborar los siguientes modulos:
 # Sprint Meetings Reports 2
 
 **What Worked Well?**
+
 En esta tercera etapa del proyecto se realizaron los siguientes adelantos:
 
 1. Autocompletado y la autosugerencia para la busqueda de los usuarios de chotenado.
@@ -74,10 +75,12 @@ En esta tercera etapa del proyecto se realizaron los siguientes adelantos:
 4. Se instaló la aplicación Chotenado en un cloud service (DigitalOcean), y phpmyadmin para la gestión de la base de datos.
 
 **What We Learned?**
+
 Hemos aprendido el uso de jquery para crear el sistema de likes y comentarios a las publicaciones de los amigos
 de los usuarios de chotenado.
  
 **What Didn’t Worked Well?**
+
 Se ha tenido dificultad en la integración de jquery para la elaboración del sistema de likes.
 
 # Next Sprint Planning
