@@ -61,3 +61,23 @@ Para la siguiente fase trataremos de elaborar los siguientes modulos:
 2. Comentarios: Los usuarios pueden escribir comentarios a las publicaciones de sus amigos.
 3. Mensajes: Puedes enviar mensajes a tus amigos y tener conversaciones.
 
+# Sprint Meetings Reports 2
+
+**What Worked Well?**
+En esta tercera etapa del proyecto se realizaron los siguientes adelantos:
+
+1. Autocompletado y la autosugerencia para la busqueda de los usuarios de chotenado.
+2. Se implementó el sistema de likes para las publicaciones de los amigos.
+3. También los usuarios pueden comentar las publicaciones de sus amigos.
+
+**What We Learned?**
+Hemos aprendido el uso de jquery para crear el sistema de likes y comentarios a las publicaciones de los amigos
+de los usuarios de chotenado.
+ 
+**What Didn’t Worked Well?**
+Se ha tenido dificultad en la integración de jquery para la elaboración del sistema de likes.
+
+# Next Sprint Planning
+1. Implementar el sistema de likes para las respuestas a las preguntas hechas por los usuarios.
+2. Crear notificaciones cuando una pregunta hecha sea contestada o una publicación sea comentada.
+3. Envio de mensajes entre amigos.
