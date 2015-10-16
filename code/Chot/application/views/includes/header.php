@@ -2,13 +2,11 @@
 <html lang="en-US">
 	<head>
 		<title>Choteando</title>
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/vendor/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/vendor/font-awesome/css/font-awesome.min.css" />
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/messages.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/bootstrap.min.css" />	
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/jquery-ui.css" />		
-		<script src="<?php echo base_url() ?>assets/js/vendor/jquery.min.js"></script>
-		<script src="<?php echo base_url() ?>assets/js/vendor/bootstrap.min.js"></script>
-		<script src="<?php echo base_url() ?>assets/js/vendor/jquery-ui.js"></script>		
+		<script src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
+		<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+		<script src="<?php echo base_url() ?>assets/js/jquery-ui.js"></script>		
 	</head>
 <body>
 
@@ -29,14 +27,14 @@
 			<ul class="nav navbar-nav">
 				<li><a href="<?php echo site_url('welcome') ?>">INICIO</a></li>
 			</ul>
-			<form class="navbar-form navbar-left" role="search">
+			<?php echo form_open('usuario/ir_perfil','class="navbar-form navbar-left" role="search"');?>
 				<div class="form-group">
 					<input type="hidden" name="view" value="search">
-					<input type="text" class="form-control" name="q" placeholder="Buscar personas ...">
-				</div>
-				
-				<a type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></a>
-			</form>
+					<input type="text" name="usuario" class="form-control" id="usuarios" placeholder="Buscar personas ..." />								
+				</div>							
+				<button type="submit" value="submit" class="btn btn-primary">Buscar</button>
+			</form>	
+			
 			<?php
 				$session_data = $this->session->userdata('datos');
 	     		$data['username'] = $session_data['username']; 
@@ -85,7 +83,13 @@
 </header>
 
 
-
+<script type="text/javascript">
+ $(function(){
+   	$("#usuarios").autocomplete({
+    source: "usuario/buscar_amigos" // path to the get_birds method
+  	});
+   }); 
+</script>
 
 
 

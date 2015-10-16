@@ -349,6 +349,13 @@ class Usuario extends CI_Controller
     }
   }
 
+  function verificar_usuario(){    
+    if (isset($_GET['term'])){
+      $q = strtolower($_GET['term']);
+      $this->usuario_model->verificar_usuario($q);
+    }
+  }
+
   function ir_perfil(){
    if (empty($_POST["usuario"]))
     {

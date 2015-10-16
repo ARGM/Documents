@@ -137,7 +137,9 @@ h2{
 					    
 					<?php endforeach; else:?>
 							<h4>No hay publicaciones!</h4>
-					<?php endif;?>					
+					<?php endif;?>
+
+								
 				</div>
 			</div>
 

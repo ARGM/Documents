@@ -204,6 +204,27 @@ class Usuario_model extends CI_Model {
 	    }
   	}
 
+  	function verificar_usuario($q){
+	    $this->db->select('*');
+	    $this->db->like('username', $q);
+	    $query = $this->db->get('usuarios');
+	    if($query->num_rows > 0){
+	      //foreach ($query->result_array() as $row){
+	        //$row_set['label'] = htmlentities(stripslashes($row['username'])); //build an array
+	        //$new_row['value']=htmlentities(stripslashes($row['email']));
+	        $row_set[] = htmlentities(stripslashes('Usuario no disponible'));
+	        
+        	//$row_set[] = $new_row; //build an array
+	        
+	         
+	      //}
+	      echo json_encode($row_set);
+	    }else{
+	    	 $row_set[] = htmlentities(stripslashes('Usuario disponible'));
+	    	 echo json_encode($row_set); //format the array into json data
+	    }
+  	}
+
   	function updateDownVote($voteId){
 		$sql = "UPDATE muro set DOWN_VOTE = down_vote+1 WHERE id =?";
 		$this->db->query($sql, array($voteId));

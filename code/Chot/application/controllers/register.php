@@ -20,6 +20,7 @@
 			$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 			$this->form_validation->set_rules('password', 'Password',  'required|matches[cpassword]');
 			$this->form_validation->set_rules('cpassword', 'Confirmar Password', 'required');
+			$this->form_validation->set_rules('checkbox', 'Acepto t&eacute;rminos', 'required');
 	        
 	 
 	        if ($this->form_validation->run() == FALSE)
