@@ -87,3 +87,29 @@ Se ha tenido dificultad en la integración de jquery para la elaboración del si
 1. Implementar el sistema de likes para las respuestas a las preguntas hechas por los usuarios.
 2. Crear notificaciones cuando una pregunta hecha sea contestada o una publicación sea comentada.
 3. Envio de mensajes entre amigos.
+
+
+# Sprint Meetings Reports 3
+
+**What Worked Well?**
+
+En esta tercera etapa del proyecto se hizo el siguiente adelanto:
+
+1. El sistema de likes para las respuestas a las preguntas hechas por los usuarios.
+
+**What We Learned?**
+Se hizo sencillo la implementación del sistema de likes para respuesta ya que este se había
+implementado en las publicaciones hechas en los muros de los usuarios.
+
+**What Didn’t Worked Well?**
+Se nos ha dificultado crear el sistema de notificaciones para cuando una pregunta hecha sea contestada o una publicación sea comentada.
+
+
+# Next Sprint Planning
+1. Esperamos haber terninado el sistema de notificaciones cuando una pregunta hecha sea contestada o una publicación sea comentada, y crear el sistema de envio de mensajes entre amigos.
+2. Hacer mejoras en el entorno de Choteando, como de su funcionamiento como el aspecto visual.
+ 
+
+
+
+
