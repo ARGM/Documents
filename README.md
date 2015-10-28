@@ -98,14 +98,17 @@ En esta tercera etapa del proyecto se hizo el siguiente adelanto:
 1. El sistema de likes para las respuestas a las preguntas hechas por los usuarios.
 
 **What We Learned?**
+
 Se hizo sencillo la implementación del sistema de likes para respuesta ya que este se había
 implementado en las publicaciones hechas en los muros de los usuarios.
 
 **What Didn’t Worked Well?**
+
 Se nos ha dificultado crear el sistema de notificaciones para cuando una pregunta hecha sea contestada o una publicación sea comentada.
 
 
 # Next Sprint Planning
+
 1. Esperamos haber terninado el sistema de notificaciones cuando una pregunta hecha sea contestada o una publicación sea comentada, y crear el sistema de envio de mensajes entre amigos.
 2. Hacer mejoras en el entorno de Choteando, como de su funcionamiento como el aspecto visual.
  
