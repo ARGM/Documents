@@ -54,13 +54,13 @@
 				</li>
 				<li><a href="<?php echo site_url('post/add_new_entry') ?>" >Nueva Pregunta</a></li>
 				<li class="dropdown messages-dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <span class="label label-default">0</span> <b class="caret"></b></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-bell"> <span class="label label-default">0</span> <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="./?view=notifications">Ver notificaciones</a></li>
 					</ul>
 				</li>
-				<li><a href="./?view=friendreqs"><i class="fa fa-male"></i> <span class='label label-default'>0</span></a></li>
-				<li><a href="./?view=conversations"><i class="fa fa-envelope-o"></i> <span class='label label-default'>0</span></a></li>
+				<li><a href="./?view=friendreqs"><span class="glyphicon glyphicon-bullhorn"> <span class='label label-default'>0</span></a></li>
+				<li><a href="./?view=conversations"> <span class='label label-default'>0</span></a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $data['username']?><b class="caret"></b></a>
 					<ul class="dropdown-menu">

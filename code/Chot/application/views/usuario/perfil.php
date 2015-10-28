@@ -116,8 +116,8 @@ h2{
 					<?php if($query):foreach($query as $post):?>
 						<h6>(<?php echo $post->date_added;?>)</h6>  
 						<p id="<?php echo $post->id;?>"><?php echo $post->body;?></p>
-						<span><a id="<?php echo $post->id.'_upvote';?>" class="voteMe"><img src="http://www.technicalkeeda.com/img/images/up_vote.png"/></a><span id="1_upvote_result" ><?php echo $post->up_vote;?></span></span> | 
-						<a id="<?php echo $post->id.'_downvote';?>" class="voteMe"><img src="http://www.technicalkeeda.com/img/images/down_vote.png"/></a><span id="1_downvote_result" ><?php echo $post->down_vote;?></span>
+						<span><a id="<?php echo $post->id.'_upvote';?>" class="voteMe"><span class="glyphicon glyphicon-thumbs-up"></a><span id="1_upvote_result" ><?php echo $post->up_vote;?></span></span> | 
+						<a id="<?php echo $post->id.'_downvote';?>" class="voteMe"><span class="glyphicon glyphicon-thumbs-down"></a><span id="1_downvote_result" ><?php echo $post->down_vote;?></span>
 						<?php echo '<a id="'.$post->id.'" data-toggle="modal" data-target="#myModal" href=""> Editar</a> ';?>		 
 						<?php echo anchor('usuario/eliminar/'.$post->id, 'Eliminar', 
 						array('onclick' => "return confirm

@@ -158,6 +158,18 @@ class Post_model extends CI_Model
         $query = $this->db->get('comentarios');
         return $query->result();		
 	}
+
+    function updateDownVote($voteId){
+        $sql = "UPDATE comentarios set DOWN_VOTE = down_vote+1 WHERE id_comentario =?";
+        $this->db->query($sql, array($voteId));
+        return $this->db->affected_rows();
+    }
+
+    function updateUpVote($voteId){
+        $sql = "UPDATE comentarios set UP_VOTE = up_vote+1 WHERE id_comentario =?";
+        $this->db->query($sql, array($voteId));
+        return $this->db->affected_rows();
+    }
 }
  
 /* End of file blog_model.php */

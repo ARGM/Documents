@@ -1,4 +1,39 @@
 <?php $this->load->view('includes/header'); ?>
+
+<script>
+	$(document).ready(function(){
+		  $(".voteMe").click(function() {
+			var voteId = this.id;
+			var upOrDown = voteId.split('-'); 
+			$.ajax({
+				type: "post",
+				url: "http://104.131.29.243/index.php/post/likes",
+				cache: false,				
+				data:'voteId='+upOrDown[0] + '&upOrDown=' +upOrDown[1],
+				success: function(response){				
+					try{
+						if(response=='true'){	
+							var newValue = parseInt($("#"+voteId+'_result').text()) + 1;            
+							$("#"+voteId+'_result').html(newValue);
+							location.reload();
+						}else{
+							alert('Sorry Unable to update..');
+						}
+					}catch(e) {		
+						alert('Exception while request..');
+					}		
+				},
+				error: function(){						
+					alert('Error while request..');
+				}
+			 });
+		});
+	});
+</script>
+
+
+
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
@@ -30,6 +65,9 @@
 					<?php if($query2): foreach($query2 as $post2):?>
 						<h6><a href="<?php echo site_url('post/ver_perfil/'.$post2->username) ?>" ><?php echo $post2->username;?></a>(<?php echo $post2->date;?>)</h6>
 						<p> <?php echo $post2->comment;?></p>
+						<span><a id="<?php echo $post2->id_comentario.'-upvote';?>" class="voteMe"><span class="glyphicon glyphicon-thumbs-up"></span></a><span id="1_upvote_result" ><?php echo $post2->up_vote;?></span></span> | 
+						<a id="<?php echo $post2->id_comentario.'-downvote';?>" class="voteMe"><span class="glyphicon glyphicon-thumbs-down"></span></a><span id="1_downvote_result" ><?php echo $post2->down_vote;?></span>
+							
 					<?php endforeach; else:?>
 					<h4>Query falso</h4>	
 					<?php endif;?>

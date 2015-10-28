@@ -118,8 +118,8 @@ h2{
 			    		<?php if($query2):foreach($query2 as $post2):?>
 							<h6>(<?php echo $post2->date_added;?>)</h6>  
 							<p id="<?php echo $post2->id;?>"><?php echo $post2->body;?></p>
-							<span><a id="<?php echo $post2->id.'_upvote';?>" class="voteMe"><img src="http://www.technicalkeeda.com/img/images/up_vote.png"/></a><span id="1_upvote_result" ><?php echo $post2->up_vote;?></span></span> | 
-							<a id="<?php echo $post2->id.'_downvote';?>" class="voteMe"><img src="http://www.technicalkeeda.com/img/images/down_vote.png"/></a><span id="1_downvote_result" ><?php echo $post2->down_vote;?></span>
+							<span><a id="<?php echo $post2->id.'_upvote';?>" class="voteMe"><span class="glyphicon glyphicon-thumbs-up"></span></a><span id="1_upvote_result" ><?php echo $post2->up_vote;?></span></span> | 
+							<a id="<?php echo $post2->id.'_downvote';?>" class="voteMe"><span class="glyphicon glyphicon-thumbs-down"></a><span id="1_downvote_result" ><?php echo $post2->down_vote;?></span>
 							
 							<?php $q = get_comentarios($post2->id);
 						     if($q):foreach($q as $p):

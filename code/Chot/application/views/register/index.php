@@ -86,7 +86,7 @@
 						Registro Gratis por Siempre!
 					</div>
 					<div class="panel-body">
-						<div class="alert alert-info">
+						<div id="element" class="alert alert-info" style=''>
 							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   							<strong>Mensaje!</strong> 
   							<?php echo validation_errors(); ?>
@@ -123,7 +123,7 @@
 									<input type="checkbox"  name="checkbox"> Acepto terminos y condiciones
 								</label>
 							</div>
-							<button type="submit" class="btn btn-block btn-default">Registrar</button>
+							<button id="show" type="submit" class="btn btn-block btn-default">Registrar</button>
 						</form>
 					</div>
 				</div>
@@ -146,7 +146,14 @@
 	</div>
 	<br>
 	
-
+	<script type="text/javascript">
+	//$(document).ready(function(){
+	  
+	  //$("#show").click(function(){
+	    //$("#element").show();
+	  //});
+	//});
+	</script>
 
 	
 </body>

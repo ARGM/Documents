@@ -205,6 +205,28 @@ class Post extends CI_Controller
 					
 		}	
 	}
+
+    function likes(){
+        // Actualizacion de los like
+        $voteId=  $this->input->post('voteId');
+        $upOrDown=  $this->input->post('upOrDown');
+
+        $status ="false";
+        $updateRecords = 0;
+        
+        if($upOrDown=='upvote'){
+            $updateRecords = $this->post_model->updateUpVote($voteId);
+        }else{
+            $updateRecords = $this->post_model->updateDownVote($voteId);
+        }
+
+        if($updateRecords>0){
+            $status = "true";
+        }
+        echo $status;
+        //redirect('usuario/'); 
+        // final de los like
+    }
 }
  
 /* End of file blog.php */
