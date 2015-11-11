@@ -113,6 +113,26 @@ Se nos ha dificultado crear el sistema de notificaciones para cuando una pregunt
 2. Hacer mejoras en el entorno de Choteando, como de su funcionamiento como el aspecto visual.
  
 
+**What Worked Well?**
 
+En esta cuarta etapa del proyecto se hicieron los siguientes adelantos:
 
+1. Se logro implementar el sistema de mensajes interno entre usuarios que sean amigos.
+2. El sistema de notificaciones fue implementado para cuando un mensajae intrno ha sido enviado o una solicitud de amistad
+ha sido recivida.
+
+**What We Learned?**
+
+1. Se ha aprendido con elaborar un sistema sencillo de mensajes internos entre usuarios.
+2. Como encontrar errores en la ejeción de javascript en el navegador
+
+**What Didn’t Worked Well?**
+
+La elaboración del sistema de notiificaciones de mensajes interno se complico en su momento ya que se dificultaba
+como validar cuando un mensaje habia sido leido.
+
+# Next Sprint Planning
+
+1. Implementar sistema de notificación cuando una pregunta sea contestada.
+2. Hacer mejoras en el entorno de Choteando como de su funcionamiento y el aspecto visual.
 
