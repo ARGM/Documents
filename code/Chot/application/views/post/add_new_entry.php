@@ -16,9 +16,9 @@
         </div>
       </div>
       <div class="list-group">
-        <a href="#" class="list-group-item">Amigos <span class="label label-default pull-right">0</span></a>
-        <a href="#" class="list-group-item">Fotos <span class="label label-default pull-right">0</span></a>
-        <a href="#" class="list-group-item">Mensajes</a>
+        <a href="<?php echo site_url('usuario/mis_amigos')?>" class="list-group-item">Amigos <span class="label label-default pull-right"><?php echo $total ?></span></a>
+        <!--<a href="#" class="list-group-item">Fotos <span class="label label-default pull-right">0</span></a>-->
+        <a href="<?php echo site_url('usuario/verMensajesInternos') ?>" class="list-group-item">Mensajes</a>
         <!--  <a href="#" class="list-group-item">Grupos</a> -->
       </div>
     </div>
@@ -51,7 +51,7 @@
                     <option value="">Escoge una categor&iacute;a</option>
                     <option value="matematicas">Matematicas</option>
                     <option value="fisica">F&iacute;sica</option>
-                    <option value="programacion">Programaci&0acute;n</option>
+                    <option value="programacion">Programaci&oacute;n</option>
                     <option value="programacion">Otros</option>
                   </select>
                 </div>
@@ -60,7 +60,7 @@
             <button type="submit" value="submit" class="btn btn-primary">Preguntar</button>
           <?php echo form_close();?>
           <a href="<?php echo site_url('post/index') ?>" >Volver</a>
-          <?php echo $id ?>
+          
         </div>
       </div>
     </div>

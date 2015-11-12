@@ -5,10 +5,11 @@
 		<div class="col-md-3">
 			
 			<div class="list-group">
-				<a href="#" class="list-group-item">Amigos <span class="label label-default pull-right">0</span></a>
-				<a href="#" class="list-group-item">Fotos <span class="label label-default pull-right">0</span></a>
-				<a href="#" class="list-group-item">Mensajes</a>
+				<a href="<?php echo site_url('usuario/mis_amigos')?>" class="list-group-item">Amigos <span class="label label-default pull-right"><?php echo $total?></span></a>
+				<!--<a href="#" class="list-group-item">Fotos <span class="label label-default pull-right">0</span></a>-->
+				<a href="<?php echo site_url('usuario/verMensajesInternos') ?>" class="list-group-item">Mensajes</a>
 				<!--  <a href="#" class="list-group-item">Grupos</a> -->
+				
 			</div>
 		</div>
 		<div class="col-md-7">

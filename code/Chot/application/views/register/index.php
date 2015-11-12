@@ -10,13 +10,7 @@
 		<script src="<?php echo base_url() ?>assets/js/myjavascript.js"></script>		
 	</head>
 
-	<script type="text/javascript">
-	 $(function(){
-	   	$("#user").autocomplete({
-	    source: "usuario/verificar_usuario" // path to the get_birds method
-	  	});
-	   }); 
-	</script>
+	
 <body>
 
 	<header class="navbar navbar-default navbar-static-top" role="banner">
@@ -28,11 +22,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<?php echo site_url('welcome') ?>">Choteando</a>
+				<a class="navbar-brand" href="<?php echo base_url('')?>">Choteando</a>
 			</div>
 			<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 				<ul class="nav navbar-nav">
-					<li><a class="navbar-brand" href="<?php echo site_url('welcome') ?>">Inicio</a></li>
+					<li><a class="navbar-brand" href="<?php echo base_url('')?>">Inicio</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li>
@@ -147,12 +141,11 @@
 	<br>
 	
 	<script type="text/javascript">
-	//$(document).ready(function(){
-	  
-	  //$("#show").click(function(){
-	    //$("#element").show();
-	  //});
-	//});
+	 $(function(){
+	   	$("#user").autocomplete({
+	    source: "usuario/verificar_usuario" // path to the get_birds method
+	  	});
+	   }); 
 	</script>
 
 	

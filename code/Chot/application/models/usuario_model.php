@@ -11,6 +11,7 @@ class Usuario_model extends CI_Model {
 	# 123-admin
 	public function login($username,$password){
 		$sql = "SELECT * FROM usuarios WHERE username = ? and password = ?"; 
+
 		$q = $this->db->query($sql, array($username, $password));		
 		if($q->num_rows()>0){
 			return true;
@@ -56,7 +57,8 @@ class Usuario_model extends CI_Model {
 	public function add_publicacion($data){
 		$data = array(
             'body' => $data['publicacion'],
-            'username' => $data['username'],                     
+            'username' => $data['username'],
+            'date_added'=> date("Y-m-d h:i:sa")                     
         );
         $this->db->insert('muro',$data);
 	}
@@ -64,7 +66,7 @@ class Usuario_model extends CI_Model {
 	public function getPublicaciones($username='')
 	{
 		$this->db->where('username',$username);
-		$this->db->order_by("date_added","asc");        
+		$this->db->order_by("date_added","desc");        
         $query = $this->db->get('muro');
         return $query->result();
 	}
@@ -74,6 +76,13 @@ class Usuario_model extends CI_Model {
         
 		$this->db->delete('muro',array('id'=>$id));
         
+	}
+
+	function eliminarAmistad($username, $toUser){
+		$sql = "DELETE FROM friend_requests WHERE 
+		       (user_to='$username' AND user_from='$toUser') OR  
+		       (user_to='$toUser' AND user_from = '$username')";
+		$this->db->query($sql);
 	}
 	
 	function editarPublicacion($data, $id){
@@ -148,7 +157,8 @@ class Usuario_model extends CI_Model {
 	function solicitud_amistad($data){
 		$data = array(
             'user_from' => $data['user_from'],
-            'user_to' => $data['user_to'],                     
+            'user_to' => $data['user_to'],
+            'enviada' => 1                     
         );
         $this->db->insert('friend_requests',$data);
 		
@@ -172,7 +182,7 @@ class Usuario_model extends CI_Model {
 	
 	function ver_amistad($user_to, $user_from){
 				
-		$this->db->select('aceptada');
+		$this->db->select('*');
 		$this->db->from('friend_requests');
 		$where = "(user_to='$user_to' AND user_from='$user_from') OR (user_to='$user_from' AND user_from='$user_to')";
 		$this->db->where($where);		
@@ -183,6 +193,8 @@ class Usuario_model extends CI_Model {
 			return null;
 		}
 	}
+
+
 
 	function buscar_amigos($q){
 	    $this->db->select('*');
@@ -244,6 +256,92 @@ class Usuario_model extends CI_Model {
 		$this->db->insert('comentario_muro',$data);
 		
 	}
+
+	public function getAmigos($username)
+	{
+		$this->db->select('count(user_from) as total');
+		$this->db->from('friend_requests');
+		$where = "(user_from='$username' AND aceptada = 1)";
+		$this->db->where($where);		
+		$q1 = $this->db->get();
+		if($q1->num_rows()>0){
+			$row = $q1->row();
+			$a = $row->total;   
+		}else{
+			$a = 0;
+		}
+
+		$this->db->select('count(user_to) as total');
+		$this->db->from('friend_requests');
+		$where = "(user_to='$username' AND aceptada = 1)";
+		$this->db->where($where);		
+		$q2 = $this->db->get();
+		if($q2->num_rows()>0){
+			$row = $q2->row();
+			$b = $row->total; 
+		}else{
+			$b =  0;
+		}
+
+		return $a+$b;		
+	}
+
+	public function misAmigos($username){
+
+		$this->db->select('user_to as amigo');
+		$this->db->distinct();
+		$this->db->from('friend_requests');
+		$where = "(user_from='$username' AND aceptada = 1)";
+		$this->db->where($where);		
+		$this->db->get();
+		$query1 = $this->db->last_query();
+		
+		$this->db->select('user_from as amigo');
+		$this->db->distinct();
+		$this->db->from('friend_requests');
+		$where = "(user_to='$username' AND aceptada = 1)";
+		$this->db->where($where);		
+		$this->db->get();
+		$query2 = $this->db->last_query();
+
+		$query = $this->db->query($query1." UNION ".$query2);
+
+		if($query->num_rows()>0){
+			return $query->result();
+		}else{
+			return null;
+		}
+	}
+
+	public function mensajeInterno($data)
+	{
+		$data = array(
+            'toUser' => $data['toUser'],
+            'fromUser' => $data['fromUser'],
+            'fecha' => $data['fecha'],
+            'texto' => $data['texto'],
+            'leido' => 'no',                                                               
+        );
+        $this->db->insert('mensajeInterno',$data);
+	}
+
+	public function getMenInter($username='')
+	{
+		$sql = "SELECT * FROM mensajeInterno WHERE toUser = ? order by fecha desc"; 
+
+		$q = $this->db->query($sql, $username);		
+		if($q->num_rows()>0){
+			return $q->result();
+		}else{
+			return null;
+		}	
+	}
+
+	function updateMenInter($Id){
+        $sql = "UPDATE mensajeInterno set leido = 'si' WHERE id =?";
+        $this->db->query($sql, array($Id));
+        return $this->db->affected_rows();
+    }
 
 	
 }

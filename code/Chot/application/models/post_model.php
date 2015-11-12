@@ -141,7 +141,8 @@ class Post_model extends CI_Model
         $data = array(
             'id_post' => $data['id_post'],
             'username' => $data['username'],
-            'comment' => $data['comentario'],            
+            'comment' => $data['comentario'],
+            'date'=> date("Y-m-d h:i:sa")            
         );
         $this->db->insert('comentarios',$data);
     }

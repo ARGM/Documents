@@ -21,7 +21,7 @@ class Login extends CI_Controller {
 					'id'	   => $fila->id
 					);
 				$this->session->set_userdata('datos',$data);				
-				redirect('welcome');
+				redirect('usuario/'); 
 			} else {
 				redirect('login');
 			}

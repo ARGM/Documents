@@ -11,8 +11,10 @@ class Usuario extends CI_Controller
     	$session_data = $this->session->userdata('datos');
     	$username = $session_data['username'];
 
+        $data['query'] = $this->usuario_model->getUserData($username);
+        $data['Nombre'] = $data['query'][0]->first_name.' '.$data['query'][0]->last_name;
 
-
+        $data['total'] = $this->usuario_model->getAmigos($username);
     	$data['query'] = $this->usuario_model->getPublicaciones($username);
     	$data['query2'] = $this->usuario_model->get_foto_perfil($username);
     	$data['error'] = '';
@@ -44,6 +46,9 @@ class Usuario extends CI_Controller
     }
 
     function comen_post(){
+        $session_data = $this->session->userdata('datos');
+        $username = $session_data['username'];
+
         $id_post=  $this->input->post('id_post');
         $comentario=  $this->input->post('comen');
         //$datos['uno'] = $id_post;
@@ -57,7 +62,10 @@ class Usuario extends CI_Controller
         //echo $id_post;
         $data = array(                
             'id_post' => $id_post,                
-            'comentario'=> $comentario,                        
+            'comentario'=> $comentario,
+            'user' => $username,
+            'date' => date("Y-m-d h:i:sa") 
+
         );
         $this->usuario_model->comentar_muro($data);
         $msj = "si";
@@ -119,6 +127,7 @@ class Usuario extends CI_Controller
 		$session_data = $this->session->userdata('datos');
     	$username = $session_data['username'];
     	$data['query'] = $this->usuario_model->getUserData($username);
+        $data['Nombre'] = $data['query'][0]->first_name.' '.$data['query'][0]->last_name;
 		$data['query2'] = $this->usuario_model->get_foto_perfil($username);
     	$data['error'] = '';
 		$data['img'] =  base_url().'assets/uploads/'.$data['query2'][0]->img_name;
@@ -133,6 +142,7 @@ class Usuario extends CI_Controller
         $session_data = $this->session->userdata('datos');
     	$username = $session_data['username'];
     	$data['query'] = $this->usuario_model->getUserData($username);
+        $data['Nombre'] = $data['query'][0]->first_name.' '.$data['query'][0]->last_name;
 		$data['query2'] = $this->usuario_model->get_foto_perfil($username);
     	$data['error'] = '';
 		$data['img'] =  base_url().'assets/uploads/'.$data['query2'][0]->img_name;
@@ -160,6 +170,7 @@ class Usuario extends CI_Controller
         $session_data = $this->session->userdata('datos');
     	$username = $session_data['username'];
     	$data['query'] = $this->usuario_model->getUserData($username);
+        $data['Nombre'] = $data['query'][0]->first_name.' '.$data['query'][0]->last_name;
 		$data['query2'] = $this->usuario_model->get_foto_perfil($username);
     	$data['error'] = '';
 		$data['img'] =  base_url().'assets/uploads/'.$data['query2'][0]->img_name;
@@ -187,6 +198,7 @@ class Usuario extends CI_Controller
         $session_data = $this->session->userdata('datos');
     	$username = $session_data['username'];
     	$data['query'] = $this->usuario_model->getUserData($username);
+        $data['Nombre'] = $data['query'][0]->first_name.' '.$data['query'][0]->last_name;
 		$data['query2'] = $this->usuario_model->get_foto_perfil($username);
     	$data['error'] = '';
 		$data['img'] =  base_url().'assets/uploads/'.$data['query2'][0]->img_name;
@@ -215,6 +227,7 @@ class Usuario extends CI_Controller
         $session_data = $this->session->userdata('datos');
     	$username = $session_data['username'];
     	$data['query'] = $this->usuario_model->getUserData($username);
+        $data['Nombre'] = $data['query'][0]->first_name.' '.$data['query'][0]->last_name;
 		$data['query2'] = $this->usuario_model->get_foto_perfil($username);
     	$data['error'] = '';
 		$data['img'] =  base_url().'assets/uploads/'.$data['query2'][0]->img_name;
@@ -293,7 +306,15 @@ class Usuario extends CI_Controller
             $data['img'] = base_url().'assets/uploads/'.$file_data['file_name'];            
 			$this->load->view('usuario/perfil', $data);
 		}
-	}	
+	}
+
+    function eliminarAmigo(){
+        $session_data = $this->session->userdata('datos');        
+        $username = $session_data['username'];
+        $toUser = $this->input->post('toUser2');
+        $this->usuario_model->eliminarAmistad($username, $toUser);
+        redirect('usuario/mis_amigos');
+    }	
     
     function sol_amistad(){
     	$session_data = $this->session->userdata('datos');        
@@ -315,13 +336,17 @@ class Usuario extends CI_Controller
         $data['query'] = $this->usuario_model->getUserData($user_to);
 		$data['user2'] = $data['query'][0]->username;		
 		$data['img']= base_url().'assets/uploads/'.$data['query'][0]->img_name;
-		$this->load->view('usuario/perfil_publico',$data);
+        redirect('post/ver_perfil/'.$user_to);
+		//$this->load->view('usuario/perfil_publico',$data);
 	}  
    
    function notificaciones(){
    		$session_data = $this->session->userdata('datos');        
         $username = $session_data['username'];
+        $data['q'] = $this->usuario_model->getUserData($username);
+        $data['Nombre'] = $data['q'][0]->first_name.' '.$data['q'][0]->last_name;
    		$data['query'] = $this->usuario_model->get_notificaciones($username);
+        $data['total'] = $this->usuario_model->getAmigos($username);
         $data['query2'] = $this->usuario_model->get_foto_perfil($username);
         $data['error'] = '';
         $data['img'] =  base_url().'assets/uploads/'.$data['query2'][0]->img_name;        
@@ -337,7 +362,14 @@ class Usuario extends CI_Controller
                 'user_from' => $user_from,                                                        
          	);
         $this->usuario_model->aceptar_solicitud($data,$username);
+        $data['q'] = $this->usuario_model->getUserData($username);
+        $data['Nombre'] = $data['q'][0]->first_name.' '.$data['q'][0]->last_name;
         $data['query'] = $this->usuario_model->get_notificaciones($username);
+        $data['total'] = $this->usuario_model->getAmigos($username);
+        $data['query2'] = $this->usuario_model->get_foto_perfil($username);
+        $data['error'] = '';
+        $data['img'] =  base_url().'assets/uploads/'.$data['query2'][0]->img_name;        
+        $data['ho'] = 'esta';
         $this->load->view('usuario/notificaciones', $data);
         	
    }
@@ -359,7 +391,7 @@ class Usuario extends CI_Controller
   function ir_perfil(){
    if (empty($_POST["usuario"]))
     {
-        redirect('welcome/');
+        redirect('usuario/');
     }else{
         $data['error'] = '';
 
@@ -383,27 +415,113 @@ class Usuario extends CI_Controller
         }else{
             if($data['amistad']){
                 
-                $data['query'] = $this->usuario_model->getUserData($data['user_to']);
-                $data['query2'] = $this->usuario_model->getPublicaciones($data['user_to']);                              
-                $data['user2'] = $data['query'][0]->username;       
-                $data['img']= base_url().'assets/uploads/'.$data['query'][0]->img_name;
-                $data['amistad']=1;
-                $this->load->view('usuario/perfil_publico', $data);
+                //$data['query'] = $this->usuario_model->getUserData($data['user_to']);
+                //$data['Nombre'] = $data['query'][0]->first_name.' '.$data['query'][0]->last_name;
+                //$data['query2'] = $this->usuario_model->getPublicaciones($data['user_to']);                              
+                //$data['user2'] = $data['query'][0]->username;       
+                //$data['img']= base_url().'assets/uploads/'.$data['query'][0]->img_name;
+                //$data['amistad']=1;
+                redirect('post/ver_perfil/'.$data['user_to']);
+                //$this->load->view('usuario/perfil_publico', $data);
                 //echo $data['amistad'][0]->aceptada;
                                 
             }else{
-                $data['query'] = $this->usuario_model->getUserData($data['user_to']);
-                $data['query2'] = $this->usuario_model->getPublicaciones($data['user_to']);
-                $data['user2'] = $data['query'][0]->username;       
-                $data['img']= base_url().'assets/uploads/'.$data['query'][0]->img_name;
-                $data['amistad'] = 0;
-                $this->load->view('usuario/perfil_publico', $data);             
+                //$data['query'] = $this->usuario_model->getUserData($data['user_to']);
+                //$data['query2'] = $this->usuario_model->getPublicaciones($data['user_to']);
+                //$data['user2'] = $data['query'][0]->username;       
+                //$data['img']= base_url().'assets/uploads/'.$data['query'][0]->img_name;
+                //$data['amistad'] = 0;
+                //$this->load->view('usuario/perfil_publico', $data);
+                redirect('post/ver_perfil/'.$data['user_to']);             
                 //echo $data['amistad'][0]->aceptada;
             }
                     
         }
     }
-  } 
+  }
+
+  function mis_amigos(){
+    $session_data = $this->session->userdata('datos');        
+    $username = $session_data['username'];
+    $data['query'] = $this->usuario_model->getUserData($username);
+    $data['Nombre'] = $data['query'][0]->first_name.' '.$data['query'][0]->last_name;
+    $data['total'] = $this->usuario_model->getAmigos($username);
+    $data['query2'] = $this->usuario_model->misAmigos($username);
+    $data['Nombre'] = $data['query'][0]->first_name.' '.$data['query'][0]->last_name;
+    //$data['total'] = $data['query2'][0]->total;
+    $data['img']= base_url().'assets/uploads/'.$data['query'][0]->img_name;
+    $this->load->view('usuario/amigos', $data);
+
+  }
+
+
+   function mensajeInterno()
+   {
+        $session_data = $this->session->userdata('datos');        
+        $username = $session_data['username'];
+        $data['query'] = $this->usuario_model->getUserData($username);
+        $data['Nombre'] = $data['query'][0]->first_name.' '.$data['query'][0]->last_name;
+        $data['total'] = $this->usuario_model->getAmigos($username);
+        $data['query2'] = $this->usuario_model->misAmigos($username);
+        $data['Nombre'] = $data['query'][0]->first_name.' '.$data['query'][0]->last_name;
+        $data['img']= base_url().'assets/uploads/'.$data['query'][0]->img_name;
+
+        //set validation rules        
+        $this->form_validation->set_rules('mensaje', 'Mensaje', 'required|xss_clean');
+        $this->form_validation->set_rules('toUser', 'Destinatario', 'required|xss_clean');
+       
+ 
+        if ($this->form_validation->run() == FALSE)
+        {
+            //if not valid
+            $this->load->view('usuario/amigos',$data);
+        }
+        else
+        {
+            $data = array(                
+                'texto' => $this->input->post('mensaje'),
+                'toUser' => $this->input->post('toUser'),                                
+                'fromUser'=> $username,
+                'fecha'=> date("Y-m-d h:i:sa")                            
+            );
+
+            //if valid            
+            $this->usuario_model->mensajeInterno($data);           
+            //$this->session->set_flashdata('message', '1 new entry added!');
+            $this->session->set_flashdata('message', 'Su mensaje ha sido enviado!');
+            redirect('usuario/mis_amigos');            
+        }
+       
+   } 
+
+   function verMensajesInternos(){
+        $session_data = $this->session->userdata('datos');        
+        $username = $session_data['username'];
+        $data['q'] = $this->usuario_model->getUserData($username);
+        $data['Nombre'] = $data['q'][0]->first_name.' '.$data['q'][0]->last_name;
+        $data['query'] = $this->usuario_model->getMenInter($username);
+        $data['total'] = $this->usuario_model->getAmigos($username);
+        $data['query2'] = $this->usuario_model->get_foto_perfil($username);
+        $data['error'] = '';
+        $data['img'] =  base_url().'assets/uploads/'.$data['query2'][0]->img_name;        
+        $data['ho'] = 'esta';
+        $this->load->view('usuario/verMensajesInternos', $data);
+   }
+
+   function actualizaMenInter(){
+     // Actualizacion de los like
+        $Id=  $this->input->post('Id');
+        //$upOrDown=  $this->input->post('upOrDown');
+
+        $status ="false";
+        $updateRecords = 0;
+        $updateRecords = $this->usuario_model->updateMenInter($Id);
+
+        if($updateRecords>0){
+            $status = "true";
+        }
+        echo $status;
+   }
 }
 	
 	

@@ -8,19 +8,19 @@
 						<img src="<?php echo $img?>" width="75" height="75" >
 					</div>
 					<div class="col-md-8">
-						<h5><a href="<?php echo site_url('usuario/')?>">Alcibiades Bustillo</a></h5>
-						<a href="<?php echo site_url('usuario/configuracion')?>" class="btn btn-default btn-xs">Editar Informacion</a>
+						<h5><a href="<?php echo site_url('usuario/')?>"><?php echo $Nombre?></a></h5>
+						<a href="<?php echo site_url('usuario/configuracion')?>" class="btn btn-default btn-xs">Editar Informaci&oacute;n</a>
 					</div>
 				</div>
 			</div>
 			<div class="list-group">
-				<a href="./?view=editinformation" class="list-group-item">Informacion Personal</a>
-				<a href="./?view=editbasicinfo" class="list-group-item">Informacion Basica</a>
+				<a href="./?view=editinformation" class="list-group-item">Informaci&oacute;n Personal</a>
+				<a href="./?view=editbasicinfo" class="list-group-item">Informacion B&aacute;sica</a>
 				<!--  <a href="./?view=editcontactinfo" class="list-group-item">Informacion de Contacto</a>-->
 			</div>
 		</div>
 		<div class="col-md-7">
-			<h1>Editar Informacion</h1>
+			<h1>Editar Informaci&oacute;n</h1>
 			<?php echo $error;?>
 			<?php echo form_open_multipart('usuario/do_upload'); ?>
 				<div class="form-group">

@@ -44,7 +44,7 @@ h2{
 
 <script>
 	$(document).keypress(function(e) {	
-			var id = event.target.id;
+			var id = e.target.id;
 			var id2 = id.split('_');	    	
 	    	var uno =document.getElementById(id).value;
 	    	if(e.which == 13) {		   		 	    
@@ -59,7 +59,8 @@ h2{
 				    },
 				    success: function(msg){
 				        //alert('wow' + msg);
-				        location.reload();
+				        //location.reload();
+				        document.location.reload();
 				    }
 				});
 	  		}	
@@ -77,15 +78,20 @@ h2{
 						<img src="<?php echo $img?>" width="75" height="75" >
 					</div>
 					<div class="col-md-8">
-						<?php if($amistad):?>
-							<p>Hola amigo</p>
+						<?php if($env and $amistad):?>							
+							<p>Hola amigo</p>							
 						<?php else:?>
-							<?php echo form_open('usuario/sol_amistad');?>
-					    		<p><button class="btn btn-primary btn-xs" type="submit" value="upload">Solicitar Amistad</button></p>
-					    		<input type="hidden" name="user_to" value="<?php echo $user2?>">
-					    		<?php echo $user2?>
-				    		</form>    	
-			    		<?php endif;?>    	
+							<?php if($env and !$amistad):?>
+								<h4>Solicitud enviada</h4>								
+							<?php else:?>									
+								<h4>Enviar solicitud</h4>
+									<?php echo form_open('usuario/sol_amistad');?>
+					    				<p><button class="btn btn-primary btn-xs" type="submit" value="upload">Solicitar Amistad</button></p>
+					    				<input type="hidden" name="user_to" value="<?php echo $user2?>">					    				
+				    				</form>
+								
+							<?php endif;?>	
+						<?php endif;?>
 						<?php echo $error;?>
 					</div>
 				</div>
@@ -124,14 +130,14 @@ h2{
 							<?php $q = get_comentarios($post2->id);
 						     if($q):foreach($q as $p):
 						     	echo '<br>';	
-						     	echo $p->comentario;?>
+					     		echo '<b>'.$p->user.'</b>'.' '.$p->comentario.' '.$p->date;?>
 						     
 						     <?php endforeach; else:?>
 						     	
 							 <?php endif;?>
 							 <br><br>
 					    	<textarea id="<?php echo $post2->id.'_coment';?>" placeholder="Escribe un comentario..." name="publicacion" class="form-control" rows="1"></textarea>
-
+					    	
 						<?php endforeach; else:?>
 							<h4>No hay publicaciones!</h4>
 						<?php endif;?>

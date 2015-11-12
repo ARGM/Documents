@@ -56,8 +56,11 @@ class Post extends CI_Controller
  
     function add_new_entry()
     {
+        $this->load->model('usuario_model');
         $session_data = $this->session->userdata('datos');
-        $id_user['id'] = $session_data['id'];       
+        $username = $session_data['username'];
+        $id_user['id'] = $session_data['id'];
+        $data['total'] = $this->usuario_model->getAmigos($username);       
                  
         //set validation rules
         $this->form_validation->set_rules('title', 'Titulo', 'required|xss_clean|max_length[200]');
@@ -67,7 +70,7 @@ class Post extends CI_Controller
         if ($this->form_validation->run() == FALSE)
         {
             //if not valid
-            $this->load->view('post/add_new_entry',$id_user);
+            $this->load->view('post/add_new_entry',$data);
         }
         else
         {
@@ -76,7 +79,7 @@ class Post extends CI_Controller
                 'description' => $this->input->post('description'),
                 'categoria' => $this->input->post('categoria'),
                 'id_user'=> $id_user['id'],
-                'date'=> date("Y-m-d G:i:s")               
+                'date'=> date("Y-m-d h:i:sa")              
             );
 
             //if valid            
@@ -87,7 +90,12 @@ class Post extends CI_Controller
     }
     
     function editar()
-    {        
+    {
+        $this->load->model('usuario_model');
+        $session_data = $this->session->userdata('datos');
+        $username = $session_data['username'];
+        $data['total'] = $this->usuario_model->getAmigos($username); 
+                
         $data['id_post'] = $this->uri->segment(3);
         $data['query'] = $this->post_model->get_one_post($data['id_post']);       
                  
@@ -126,6 +134,10 @@ class Post extends CI_Controller
 	
 	
 	function comentar(){
+        $this->load->model('usuario_model');
+        $session_data = $this->session->userdata('datos');
+        $username = $session_data['username'];
+        $data['total'] = $this->usuario_model->getAmigos($username); 
 		        
         $data['id_post'] = $this->uri->segment(3);
         $data['query'] = $this->post_model->get_one_post($data['id_post']);
@@ -151,12 +163,17 @@ class Post extends CI_Controller
 
             //if valid            
             $this->post_model->add_comment($data);            
-            redirect('post/');           
+            redirect('post/ver/'.$data['id_post']);           
         }
 		
 	}
 	
 	function ver(){
+        $this->load->model('usuario_model');
+        $session_data = $this->session->userdata('datos');
+        $username = $session_data['username'];        
+
+        $data['total'] = $this->usuario_model->getAmigos($username);
 		$data['id_post'] = $this->uri->segment(3);
 		$data['query'] = $this->post_model->get_one_post($data['id_post']);
 		$data['query2'] =  $this->post_model->get_comments($data['id_post']);		
@@ -174,11 +191,15 @@ class Post extends CI_Controller
 		$data['user_to'] = $this->uri->segment(3);
 		
 		$data['amis'] = $this->usuario_model->ver_amistad($data['user_to'],$username);
-		
+
+		//$data['env'] = $data['amis'][0]->enviada;
+
 		if (is_null($data['amis'])){
-			$data['amistad'] = 0;			
+			$data['amistad'] = 0;
+            $data['env'] = 0;			
 		}else{
-			$data['amistad'] = $data['amis'][0]->aceptada;			
+			$data['amistad'] = $data['amis'][0]->aceptada;
+            $data['env'] = $data['amis'][0]->enviada;			
 		}
 				
 		if(strcmp($username, $data['user_to']) == 0){

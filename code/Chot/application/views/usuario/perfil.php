@@ -44,7 +44,7 @@ h2{
 
 <script>
 	$(document).keypress(function(e) {	
-			var id = event.target.id;
+			var id = e.target.id;
 			var id2 = id.split('_');	    	
 	    	var uno =document.getElementById(id).value;
 	    	if(e.which == 13) {		   		 	    
@@ -80,15 +80,15 @@ h2{
 						<img src="<?php echo $img?>" width="75" height="75" >  
 					</div>
 					<div class="col-md-8">
-						<h5><a href="<?php echo site_url('usuario/')?>">Falta nombre!!!</a></h5>
+						<h5><a href="<?php echo site_url('usuario/')?>"><?php echo $Nombre?></a></h5>
 						<a href="<?php echo site_url('usuario/configuracion')?>" class="btn btn-default btn-xs">Editar Informacion</a>
 					</div>
 				</div>
 			</div>
 			<div class="list-group">
-				<a href="#" class="list-group-item">Amigos <span class="label label-default pull-right">0</span></a>
-				<a href="#" class="list-group-item">Fotos <span class="label label-default pull-right">0</span></a>
-				<a href="#" class="list-group-item">Mensajes</a>
+				<a href="<?php echo site_url('usuario/mis_amigos')?>" class="list-group-item">Amigos <span class="label label-default pull-right"><?php echo $total?></span></a>
+				<!--<a href="#" class="list-group-item">Fotos <span class="label label-default pull-right">0</span></a>-->
+				<a href="<?php echo site_url('usuario/verMensajesInternos') ?>" class="list-group-item">Mensajes</a>
 				<!--  <a href="#" class="list-group-item">Grupos</a> -->
 			</div>
 		</div>
@@ -126,7 +126,7 @@ h2{
 					     <?php $q = get_comentarios($post->id);
 					     if($q):foreach($q as $p):
 					     	echo '<br>';	
-					     	echo $p->comentario;?>
+					     	echo '<b>'.$p->user.'</b>'.' '.$p->comentario.'<br>'.$p->date;?>
 					     
 					     <?php endforeach; else:?>
 					     	
