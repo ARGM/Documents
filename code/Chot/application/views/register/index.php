@@ -63,14 +63,14 @@
 				<p>Defino a grandes rasgos los modulos generales del sistema</p>
 				<ul>
 					<li><b>Usuarios</b>: Se pueden registrar para acceder a sus cuentas.</li>
-					<li><b>Publicaciones</b>: Cada usuario puede publicar lo que quiera y lo visualizara en su muro, el cual podran ver tambien sus amigos.</li>
-					<li><b>Perfiles</b>: Los usuarios pueden rellenar su perfil, escribir sobre ellos, que les gusta y que no, sus amigos pueden ver esta informacion.</li>
-					<li><b>Likes</b>: Los usuarios pueden darle likes a las publicaciones y/o imagenes de sus amigos.</li>
-					<li><b>Comentarios</b>: Los usuarios pueden escribir comentarios a las publicaciones y/o imagenes de sus amigos.</li>
-					<li><b>Imagenes</b>: Poder subir imagenes, poner imagen de perfil.</li>
+					<li><b>Publicaciones</b>: Cada usuario puede publicar lo que quiera y lo visualizara en su muro, el cual podran ver tambien sus amigos.</li>					
+					<li><b>Likes</b>: Los usuarios pueden darle likes a las publicaciones de sus amigos.</li>
+					<li><b>Comentarios</b>: Los usuarios pueden escribir comentarios a las publicaciones de sus amigos.</li>					
 					<li><b>Amigos</b>: Puedes buscar personas, enviarles solicitud de amistad, esperar a que te acepten o tu puedes recibir solicitudes y aceptarlas.</li>
 					<li><b>Mensajes</b>: Puedes enviar mensajes a tus amigos y tener conversaciones.</li>
-					<li><b>Notificaciones</b>: recibe notificaciones cuando tus amigos dan like o comentan tus publicaciones y/o imagenes.</li>
+					<li><b>Notificaciones</b>: recibe notificaciones cuando soliciten tu amistad o recibas un mensaje de algun amigo.</li>
+					<li><b>Preguntas</b>: Preguntas: Cada usuario puede realizar preguntas o contestar preguntas dentro de las categorias: Matematica, F&iacute;sica, Programaci&oacute;n y Otros. Tambi&eacute;n estas pueden ser editadas..</li>
+					<li><b>Likes</b>: Likes: Los usuarios pueden darle like a las respuestas de las preguntas.</li>
 				</ul>
 			</div>			
 			

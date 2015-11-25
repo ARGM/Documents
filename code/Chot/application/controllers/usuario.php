@@ -432,7 +432,7 @@ class Usuario extends CI_Controller
                 //$data['img']= base_url().'assets/uploads/'.$data['query'][0]->img_name;
                 //$data['amistad'] = 0;
                 //$this->load->view('usuario/perfil_publico', $data);
-                redirect('post/ver_perfil/'.$data['user_to']);             
+                redirect('usuario/index');             
                 //echo $data['amistad'][0]->aceptada;
             }
                     
