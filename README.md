@@ -138,3 +138,16 @@ como validar cuando un mensaje habia sido leido.
 2. Hacer mejoras en el entorno de Choteando como de su funcionamiento y el aspecto visual.
 
 # Sprint Meetings Reports 5
+
+Hasta el dia de hoy se hemos finalizado el proyecto Choteando. Esta red social tiene como funcionalidades los siguientes
+modulos:
+
+1. Usuarios: Se pueden registrar para acceder a sus cuentas.
+2. Publicaciones: Cada usuario puede publicar lo que quiera y lo visualizara en su muro, el cual podran ver tambien sus amigos.
+3. Likes: Los usuarios pueden darle likes a las publicaciones de sus amigos.
+4. Comentarios: Los usuarios pueden escribir comentarios a las publicaciones de sus amigos.
+5. Amigos: Puedes buscar personas, enviarles solicitud de amistad, esperar a que te acepten o tu puedes recibir solicitudes y aceptarlas.
+6. Mensajes: Puedes enviar mensajes a tus amigos y tener conversaciones.
+Notificaciones: recibe notificaciones cuando soliciten tu amistad o recibas un mensaje de algun amigo.
+7. Preguntas: Cada usuario puede realizar preguntas o contestar preguntas dentro de las categorias: Matematica, Física, Programación y Otros. También estas pueden ser editadas.
+8. Likes: Los usuarios pueden darle like a las respuestas de las preguntas.
