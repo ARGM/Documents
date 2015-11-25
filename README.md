@@ -148,6 +148,6 @@ modulos:
 4. Comentarios: Los usuarios pueden escribir comentarios a las publicaciones de sus amigos.
 5. Amigos: Puedes buscar personas, enviarles solicitud de amistad, esperar a que te acepten o tu puedes recibir solicitudes y aceptarlas.
 6. Mensajes: Puedes enviar mensajes a tus amigos y tener conversaciones.
-Notificaciones: recibe notificaciones cuando soliciten tu amistad o recibas un mensaje de algun amigo.
-7. Preguntas: Cada usuario puede realizar preguntas o contestar preguntas dentro de las categorias: Matematica, Física, Programación y Otros. También estas pueden ser editadas.
-8. Likes: Los usuarios pueden darle like a las respuestas de las preguntas.
+7. Notificaciones: recibe notificaciones cuando soliciten tu amistad o recibas un mensaje de algun amigo.
+8. Preguntas: Cada usuario puede realizar preguntas o contestar preguntas dentro de las categorias: Matematica, Física, Programación y Otros. También estas pueden ser editadas.
+9. Likes: Los usuarios pueden darle like a las respuestas de las preguntas.
